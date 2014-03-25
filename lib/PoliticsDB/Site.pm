@@ -16,15 +16,29 @@ use Catalyst::Runtime 5.80;
 # Static::Simple: will serve static files from the application's root
 #                 directory
 
+use Log::Log4perl::Catalyst;
+
+use PoliticsDB::Config;
+
 use Catalyst qw/
     -Debug
-    ConfigLoader
-    Static::Simple
+
+    Session
+    Session::Store::FastMmap
+    Session::State::Cookie
+    Authentication
+    Authorization::Roles
 /;
 
 extends 'Catalyst';
 
 our $VERSION = '0.01';
+
+# Set logger object in Catalyst
+
+__PACKAGE__->log(
+    Log::Log4perl::Catalyst->new(PoliticsDB::Config->get('log_conf_file'))
+);
 
 # Configure the application.
 #
@@ -40,6 +54,21 @@ __PACKAGE__->config(
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
     enable_catalyst_header => 1, # Send X-Catalyst header
+
+    'View::JSON' => {
+        expose_stash => 'json'
+    },
+
+    'Plugin::Authentication' => {
+        default => {
+            class                     => 'SimpleDB',
+            user_model                => 'DBIC::User',
+            role_relation             => 'roles',
+            role_field                => 'name',
+            use_userdata_from_session => '1',
+            password_type             => 'self_check',
+        },
+    },
 );
 
 # Start the application

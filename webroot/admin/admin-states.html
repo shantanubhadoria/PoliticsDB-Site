@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery/jquery.mobile-1.4.2.min.css" />
+    <link rel="stylesheet" type="text/css"
+    href="../css/jquery/jquery.mobile.theme-1.4.2.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+
+    <script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../js/jquery/jquery.mobile-1.4.2.js"></script>
+    <script type="text/javascript" src="../js/core.js"></script>
+    <script type="text/javascript" src="../js/adminStates.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <title>Admin</title>
+  </head>
+  <body>
+    <!-- Start of first page: #one -->
+    <div data-role="page" id="admin-states" data-theme="b">
+      <div data-role="header" data-id="admin-header">
+        <h1>Admin</h1>
+      </div>
+      <div id="admin-states-content" data-role="content" >  
+        <h2>One</h2>
+
+        <p>I have an <code>id</code> of "one" on my page container. I'm first in the source order so I'm shown when the page loads.</p> 
+
+        <p>This is a multi-page boilerplate template that you can copy to build your first jQuery Mobile page. This template contains multiple "page" containers inside, unlike a <a href="page-template.html"> single page template</a> that has just one page within it.</p>  
+        <p>Just view the source and copy the code to get started. All the CSS and JS is linked to the jQuery CDN versions so this is super easy to set up. Remember to include a meta viewport tag in the head to set the zoom level.</p>
+        <p>You link to internal pages by referring to the <code>id</code> of the page you want to show. For example, to <a href="#two" >link</a> to the page with an <code>id</code> of "two", my link would have a <code>href="#two"</code> in the code.</p>   
+
+        <h3>Show internal pages:</h3>
+        <p><a href="#two" data-role="button">Show page "two"</a></p>    
+        <p><a href="#popup" data-role="button" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
+      </div><!-- /content -->
+      <div data-role="footer" data-position="fixed"
+          data-id="admin-footer">
+          <div data-role="navbar">
+            <ul>
+              <li><a data-icon="grid" href="#"
+                  class="ui-btn-active ui-state-persist">States</a></li>
+              <li><a data-icon="grid" href="admin-constituencies.html" data-transition="slide" class="">Constituencies</a></li>
+            </ul>
+          </div>
+      </div>
+    </div><!-- /page one -->
+  </body>
+</html>

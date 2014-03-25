@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery/jquery.mobile-1.4.1.min.css" />
+
+    <script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../js/jquery/jquery.mobile-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/core.js"></script>
+    <script type="text/javascript" src="../js/adminStates.js"></script>
+    <script type="text/javascript" src="../js/adminLoksabhaConstituencies.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <title>Admin</title>
+  </head>
+  <body>
+    <div data-role="page" id="admin-states" data-theme="b">
+      <div data-role="header" data-id="admin-header">
+        <h1>Admin</h1>
+      </div>
+      <div id="admin-states-content" data-role="content" >  
+      </div>
+      <div data-role="footer" data-position="fixed"
+          data-id="admin-footer">
+          <div data-role="navbar">
+            <ul>
+              <li><a data-icon="grid" href="#admin-states"
+                  class="ui-btn-active ui-state-persist">States</a></li>
+              <li><a data-icon="grid" href="#admin-loksabhaconstituency"
+                data-transition="slide" class="">Loksabha Constituencies</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+    <div data-role="page" id="admin-loksabhaconstituency" data-theme="b">
+      <div data-role="header" data-id="admin-header">
+        <h1>Admin</h1>
+      </div>
+      <div id="admin-loksabhaconstituency-content" data-role="content" >  
+      </div>
+      <div id="admin-loksabhaconstituency-footer" data-role="footer" data-position="fixed"
+          data-id="admin-footer">
+          <div data-role="navbar">
+            <ul>
+              <li><a data-icon="grid" href="#admin-states"
+                  data-transition="slide" class="">States</a></li>
+              <li><a data-icon="grid" href="#admin-loksabhaconstituency" class="ui-btn-active
+                  ui-state-persist">Loksabha Constituencies</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        adminStates.initialize();
+      });
+    </script>
+  </body>
+</html>
