@@ -41,6 +41,72 @@ sub list :Chained('base') :PathPart('list') :Args(0) {
     $c->stash->{json}->{loksabhaconstituencies} = $states;
 }
 
+=head2 add 
+
+=cut
+
+sub add :Chained('base') :PathPart('add') :Args(0) {
+    my ( $self, $c ) = @_;
+    my $params = $c->request->parameters;
+
+    if( !$c->check_user_roles('admin') ) {
+        my $states = $c->model('DBIC::LoksabhaConstituency')->create({
+                name => $params->{name},
+                constituency_number => $params->{constituency_number},
+                state_code => $params->{state_code},
+                is_union_territory => $params->{is_union_territory},
+                reserved_for => $params->{reserved_for},
+            });
+        $c->stash(
+            json => {
+                success => JSON::true(),
+                status_message => 'Constituency Created',
+            }
+        );
+    } else {
+        $c->stash(
+            json => {
+                success => JSON::false(),
+                status_message => 'No Permissions',
+            }
+        );
+
+    }
+}
+
+=head2 update
+
+=cut
+
+sub update :Chained('base') :PathPart('update') :Args(0) {
+    my ( $self, $c ) = @_;
+    my $params = $c->request->parameters;
+
+    if( !$c->check_user_roles('admin') ) {
+        my $states = $c->model('DBIC::LoksabhaConstituency')->find($params->{id})->update({
+                name => $params->{name},
+                constituency_number => $params->{constituency_number},
+                state_code => $params->{state_code},
+                is_union_territory => $params->{is_union_territory},
+                reserved_for => $params->{reserved_for},
+            });
+        $c->stash(
+            json => {
+                success => JSON::true(),
+                status_message => 'Constituencies Updated',
+            }
+        );
+    } else {
+        $c->stash(
+            json => {
+                success => JSON::false(),
+                status_message => 'No Permissions',
+            }
+        );
+
+    }
+}
+
 =head2 index
 
 =cut

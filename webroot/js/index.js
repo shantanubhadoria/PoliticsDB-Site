@@ -78,7 +78,7 @@ var app = {
             if(res.admin == 1){
               console.log('redirect to admin');
               //$.mobile.navigate("admin/admin-aggregated.html");
-              window.location = "admin/admin-aggregated.html";
+              window.location = "admin/admin-states.html";
             }else{
               $.mobile.changePage("main.html");
             }
@@ -109,7 +109,11 @@ var app = {
         },
         async: false,
         success: function(json){
-          app.stateList = json.states;
+          var states = Object();
+          $.each(json.states,function(key,value){
+            states[value.state_code] = value;
+          });
+          app.stateList = states;
         }
       });
     }

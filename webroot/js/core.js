@@ -12,10 +12,10 @@ var showLoader = function(text) {
 $(document).ready(function(){
   console.log('initialize app');
   app.initialize();
-  $(document).on('pagebeforeshow','#admin-states', function (event,ui) {
+  $(document).on('pagebeforecreate','#admin-states', function (event,ui) {
     adminStates.initialize();
   });
-  $(document).on('pagebeforeshow','#admin-loksabhaconstituency', function (event,ui) {
+  $(document).on('pagebeforecreate','#admin-loksabhaconstituency', function (event,ui) {
     adminLoksabhaConstituencies.initialize();
   });
 
