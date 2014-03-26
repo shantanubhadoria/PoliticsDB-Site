@@ -130,7 +130,11 @@ var app = {
         },
         async: false,
         success: function(json){
-          app.loksabhaConstituencyList = json.loksabhaconstituencies;
+          var loksabhaConstituencyList = Object(); 
+          $.each(json.loksabhaconstituencies,function(key,value){
+            loksabhaConstituencyList[value.id] = value;
+          });
+          app.loksabhaConstituencyList = loksabhaConstituencyList;
         }
       });
     }

@@ -18,6 +18,9 @@ $(document).ready(function(){
   $(document).on('pagebeforecreate','#admin-loksabhaconstituency', function (event,ui) {
     adminLoksabhaConstituencies.initialize();
   });
+  $(document).on('pagecreate','#admin-loksabhaconstituency', function (event,ui) {
+    adminLoksabhaConstituencies.pagecreate();
+  });
 
   document.addEventListener("backbutton", function(e){
     if($.mobile.activePage.is('#admin-page')){
@@ -29,3 +32,4 @@ $(document).ready(function(){
     }
   }, false);
 });
+

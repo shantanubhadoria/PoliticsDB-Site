@@ -53,7 +53,7 @@ sub add :Chained('base') :PathPart('add') :Args(0) {
         my $states = $c->model('DBIC::LoksabhaConstituency')->create({
                 name => $params->{name},
                 constituency_number => $params->{constituency_number},
-                state_code => $params->{state_code},
+                state_code => (($params->{state_code} eq '') ? undef : $params->{state_code}) ,
                 is_union_territory => $params->{is_union_territory},
                 reserved_for => $params->{reserved_for},
             });
@@ -86,7 +86,7 @@ sub update :Chained('base') :PathPart('update') :Args(0) {
         my $states = $c->model('DBIC::LoksabhaConstituency')->find($params->{id})->update({
                 name => $params->{name},
                 constituency_number => $params->{constituency_number},
-                state_code => $params->{state_code},
+                state_code => (($params->{state_code} eq '') ? undef : $params->{state_code}) ,
                 is_union_territory => $params->{is_union_territory},
                 reserved_for => $params->{reserved_for},
             });
