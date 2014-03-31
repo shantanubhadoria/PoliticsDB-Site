@@ -10,6 +10,7 @@ var showLoader = function(text) {
 }
 
 $(document).ready(function(){
+  $.mobile.page.prototype.options.domCache = true;
   console.log('initialize app');
   app.initialize();
   $(document).on('pagebeforecreate','#admin-states', function (event,ui) {
@@ -20,6 +21,12 @@ $(document).ready(function(){
   });
   $(document).on('pagecreate','#admin-loksabhaconstituency', function (event,ui) {
     adminLoksabhaConstituencies.pagecreate();
+  });
+  $(document).on('pagebeforecreate','#admin-party', function (event,ui) {
+    adminParties.initialize();
+  });
+  $(document).on('pagecreate','#admin-party', function (event,ui) {
+    adminParties.pagecreate();
   });
 
   document.addEventListener("backbutton", function(e){

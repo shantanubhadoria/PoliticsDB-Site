@@ -24,6 +24,8 @@ var app = {
 
     // Initialize Storage
     this.getStateList();
+    this.getLoksabhaConstituencyList();
+    this.getPartyList();
   },
   // Bind Event Listeners
   //
@@ -121,7 +123,6 @@ var app = {
   },
   loksabhaConstituencyList: null,
   getLoksabhaConstituencyList: function(){
-   // Function caches results of PLUs list once retrieved
     if(this.loksabhaConstituencyList == null){
       $.ajax({
         url: baseURL + 'loksabhaconstituency/list/',
@@ -139,5 +140,25 @@ var app = {
       });
     }
     return this.loksabhaConstituencyList;
+  },
+  partyList: null,
+  getPartyList: function(){
+    if(this.partyList == null){
+      $.ajax({
+        url: baseURL + 'party/list/',
+        crossDomain: true,
+        data: {
+        },
+        async: false,
+        success: function(json){
+          var partyList = Object(); 
+          $.each(json.parties,function(key,value){
+            partyList[value.id] = value;
+          });
+          app.partyList = partyList;
+        }
+      });
+    }
+    return this.partyList;
   },
 };

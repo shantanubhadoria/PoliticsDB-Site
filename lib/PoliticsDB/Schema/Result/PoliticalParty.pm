@@ -120,6 +120,7 @@ __PACKAGE__->has_many(
 # Created by DBIx::Class::Schema::Loader v0.07010 @ 2014-03-17 21:08:38
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:w+InoiSG7ZzGH1+pfHHjCQ
 
+__PACKAGE__->resultset_class( 'DBIx::Class::ResultSet::HashRef' );
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

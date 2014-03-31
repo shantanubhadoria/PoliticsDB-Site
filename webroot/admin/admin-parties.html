@@ -23,28 +23,30 @@
   </head>
   <body>
     <!-- Start of first page: #one -->
-    <div data-role="page" id="admin-states" data-theme="a">
+    <div data-role="page" id="admin-party" data-theme="a">
+      <div data-role="panel" id="admin-party-panel" data-position="right" data-display="overlay">
+        <ul data-role="listview">
+          <h2 class="ui-li-heading">Add</h2>
+          <p class="ui-li-desc">Add New</p>
+        </ul>
+      </div>
       <div data-role="header" data-id="admin-header">
         <h1>Admin</h1>
       </div>
-      <div id="admin-states-content" data-role="content" >  
+      <div id="admin-party-content" data-role="content" >  
       </div><!-- /content -->
       <div data-role="footer" data-position="fixed"
           data-id="admin-footer">
           <div data-role="navbar">
             <ul>
-              <li><a data-icon="bullets" href="#"
-                  class="ui-btn-active ui-state-persist">States</a></li>
-              <li><a data-icon="bullets" href="admin-loksabhaconstituencies.html" data-transition="slide" class="">Constituencies</a></li>
-              <li><a data-icon="bullets" href="admin-parties.html" class="">Parties</a></li>
+              <li><a data-icon="bullets" href="admin-states.html"
+                  data-transition="slide" class="">States</a></li>
+              <li><a data-icon="bullets" href="admin-loksabhaconstituencies.html" class="">Loksabha Constituencies</a></li>
+              <li><a data-icon="bullets" href="#" class="ui-btn-active 
+                  ui-state-persist">Parties</a></li>
             </ul>
           </div>
       </div>
     </div><!-- /page one -->
-    <script type="text/javascript">
-      $(document).ready(function(){
-        adminStates.initialize();
-      });
-    </script>
   </body>
 </html>

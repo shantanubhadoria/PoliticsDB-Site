@@ -8,12 +8,11 @@ var adminLoksabhaConstituencies = {
         + '<a href="#" id="loksabha_constituency_' + value.id + '" class="loksabha-a"">'
         + '<img src="../img/chakragray_animated.gif">'
         + '<h2 class="ui-li-heading">' + value.name + '</h2>'
-        + '<p class="ui-li-desc">' + (value.is_union_territory?'Union Territory':app.stateList[value.state_code].name) + '</p>'
+        + '<p class="ui-li-desc">' + ((value.is_union_territory == 1)?'Union Territory':app.stateList[value.state_code].name) + '</p>'
         + '<p class="ui-li-aside">' + value.constituency_number + (value.reserved_for != 'None'?('(' + value.reserved_for + ')'):'') + '</p>'
         + '</a>'
         + '</li>'
         + '';
-
     });
     var HTML = ''
         + '<div data-role="content">'
@@ -116,7 +115,7 @@ var adminLoksabhaConstituencies = {
         + '<form action ="' + baseURL + 'loksabhaconstituency/update" class="popup-form">'
         + '<input type="hidden" name="id" value="' + value.id + '">'
         + '<div data-role="controlgroup" data-type="horizontal">'
-        + '<input type="text" name="state_code" value="' + (value.is_union_territory?'':value.state_code) + '" placeholder="state code" data-wrapper-class="controlgroup-textinput ui-btn" size="2">'
+        + '<input type="text" name="state_code" value="' + ((value.is_union_territory == 1)?'':value.state_code) + '" placeholder="state code" data-wrapper-class="controlgroup-textinput ui-btn" size="2">'
         + '<input type="constituency_number" name="number" value="' + value.constituency_number + '" data-clear-btn="false" placeholder="num" data-wrapper-class="controlgroup-textinput ui-btn" size="2">'
         + '<input type="text" name="name" value="' + value.name + '" placeholder="loksabha constituency name" data-wrapper-class="controlgroup-textinput ui-btn">'
         + '</div>'

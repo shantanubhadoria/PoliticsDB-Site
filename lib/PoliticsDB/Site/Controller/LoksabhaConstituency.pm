@@ -51,11 +51,11 @@ sub add :Chained('base') :PathPart('add') :Args(0) {
 
     if( !$c->check_user_roles('admin') ) {
         my $states = $c->model('DBIC::LoksabhaConstituency')->create({
-                name => $params->{name},
+                name                => $params->{name},
                 constituency_number => $params->{constituency_number},
-                state_code => (($params->{state_code} eq '') ? undef : $params->{state_code}) ,
-                is_union_territory => $params->{is_union_territory},
-                reserved_for => $params->{reserved_for},
+                state_code          => (($params->{state_code} eq '') ? undef : $params->{state_code}) ,
+                is_union_territory  => $params->{is_union_territory},
+                reserved_for        => $params->{reserved_for},
             });
         $c->stash(
             json => {
@@ -66,7 +66,7 @@ sub add :Chained('base') :PathPart('add') :Args(0) {
     } else {
         $c->stash(
             json => {
-                success => JSON::false(),
+                success        => JSON::false(),
                 status_message => 'No Permissions',
             }
         );
