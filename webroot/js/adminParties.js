@@ -36,14 +36,6 @@ adminParties = {
   },
   pagecreate: function(){
     $(".party-a-add").on("click",function(){
-      var HTML = ''
-        + ''
-        + '<h2 class="ui-li-heading">party-a-add Addsww</h2>'
-        + '<p class="ui-li-desc">Add Newsdf</p>'
-        + '<p class="ui-li-aside">fsdfs</p>'
-        + ''
-        + '';
-      $("#admin-party-panel").html(HTML).trigger('update');
     });
     $(".party-a").on("click",function(){
       var target = $( this ),
@@ -59,7 +51,7 @@ adminParties = {
         + '<p class="ui-li-desc">' + value.founding_year + '</p>'
         + ''
         + '';
-      $("#admin-party-panel").html(HTML).trigger('update');
+      $("#admin-party-panel").html(HTML).trigger('updatelayout');
     });
   },
 };

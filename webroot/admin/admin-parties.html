@@ -24,11 +24,40 @@
   <body>
     <!-- Start of first page: #one -->
     <div data-role="page" id="admin-party" data-theme="a">
-      <div data-role="panel" id="admin-party-panel" data-position="right" data-display="overlay">
-        <ul data-role="listview">
-          <h2 class="ui-li-heading">Add</h2>
-          <p class="ui-li-desc">Add New</p>
-        </ul>
+      <div data-role="panel" id="admin-party-panel"
+        data-position="right" data-display="overlay" data-theme="a">
+        <form class="userform">
+          <h2 id="admin-party-panel-header">Add</h2>
+          <label for="admin-party-panel-name">Name</label>
+          <input name="name" id="admin-party-panel-name" value=""
+          data-clear-btn="true" type="text" placeholder="Party Name"/>
+          <label for="admin-party-panel-election_symbol">Election Symbol</label>
+          <input name="election_symbol" id="admin-party-panel-election_symbol" 
+          value="" data-clear-btn="true" type="text" placeholder="Election Symbol"/>
+          <label for="admin-party-panel-founding_year">Founding Year</label>
+          <input name="founding_year" id="admin-party-panel-founding_year" 
+          value="" data-clear-btn="true" type="text"
+          placeholder="Founding Year" />
+          <div data-role="field-contain">
+            <fieldset data-mini="true" data-role="controlgroup" data-type="horizontal">
+              <label for="type_of_party_national">nat</label>
+              <input data-mini="true" id="type_of_party_national" name="type_of_party"
+              value="national" type="radio"/>
+              <label for="type_of_party_state">state</label>
+              <input data-mini="true" id="type_of_party_state" name="type_of_party"
+              value="state" type="radio"/>
+              <label for="type_of_party_registered_unrecognized">unrec</label>
+              <input data-mini="true" id="type_of_party_registered_unrecognized"
+              name="type_of_party" value="registered_unrecognized"
+              type="radio"/>
+            </fieldset>
+          </div>
+          <input type="file" name="election_symbol_image_96" multiple />
+          <div class="ui-grid-a">
+            <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Cancel</a></div>
+            <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Save</a></div>
+          </div>
+        </form>
       </div>
       <div data-role="header" data-id="admin-header">
         <h1>Admin</h1>
